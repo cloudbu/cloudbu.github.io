@@ -15,13 +15,16 @@
 <meta property="og:site_name" content="拙言">
 <meta property="og:description" content="这个文章描述一下数据通信的基础知识。">
 <meta property="og:locale">
+<meta property="og:image" content="http://lockless.github.io/assets/blogImg/network-topo.png">
+<meta property="og:image" content="http://lockless.github.io/assets/blogImg/osi-model.png">
 <meta property="article:published_time" content="2021-11-02T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-02T00:56:46.557Z">
+<meta property="article:modified_time" content="2021-11-02T16:23:50.302Z">
 <meta property="article:author" content="Casey">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="TCP&#x2F;IP">
 <meta property="article:tag" content="数通">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lockless.github.io/assets/blogImg/network-topo.png">
   
     <link rel="alternative" href="/atom.xml" title="拙言" type="application/atom+xml">
   
@@ -180,7 +183,31 @@ var _hmt = _hmt || [];
         <p>这个文章描述一下数据通信的基础知识。</p>
 <span id="more"></span>
 
-<h3 id="数据通信的本质"><a href="#数据通信的本质" class="headerlink" title="数据通信的本质"></a>数据通信的本质</h3><p>从二层转发到三层转发<br>冲突域<br>广播/组播域</p>
+<h3 id="数据通信网络的基本概念"><a href="#数据通信网络的基本概念" class="headerlink" title="数据通信网络的基本概念"></a>数据通信网络的基本概念</h3><h5 id="网络概念"><a href="#网络概念" class="headerlink" title="网络概念"></a>网络概念</h5><h6 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h6><ul>
+<li>网络：节点 + 链路</li>
+<li>节点：终端（PC、手机、服务器），交换机，路由器，网关等任何网络硬件</li>
+<li>链路：有线链路（双绞线、光纤等等），无线电波<br><img src="/assets/blogImg/network-topo.png" alt="network-topo"></li>
+</ul>
+<h6 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h6><p>网络通信，就是指在这些节点之间，通过链路，进行数据传输的过程。</p>
+<h5 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h5><p><img src="/assets/blogImg/osi-model.png" alt="osi"></p>
+<ul>
+<li>OSI模型每一层都有自己的功能集；</li>
+<li>层与层之间相互独立又相互依靠；</li>
+<li>上层依赖下层，下层为上层提供服务</li>
+</ul>
+<h6 id="OSI七层模型基础概念"><a href="#OSI七层模型基础概念" class="headerlink" title="OSI七层模型基础概念"></a>OSI七层模型基础概念</h6><ul>
+<li>应用层：为应用软件提供接口，使应用程序能够使用网络服务（http、ftp、smtp、pop3、telnet、dns等等）</li>
+<li>表示层：数据的编码/解码、加密/解密、压缩/解压(ASCII、JPEG等)</li>
+<li>会话层：负责建立、管理、终止表示层实体之间的会话连接</li>
+</ul>
+<p>上三层只需要基本了解，数通不怎么关心</p>
+<ul>
+<li>传输层：负责将上层的数据进行分段和重组，数据在这里为segment，提供端到端的服务（TCP、UDP）</li>
+<li>网络层：定义了逻辑地址（三层地址，IP地址），数据在这里为称为分组，或者packet，负责分组寻址、路由选择（IP），工作在这一层的设备代表是路由器</li>
+<li>数据链路层：工作在这一层的设备代表是交换机</li>
+<li>物理层：</li>
+</ul>
+<p>从二层转发到三层转发<br>冲突域<br>广播/组播域</p>
 <p>网络拓扑中的所有设备和链路</p>
 <h3 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h3>
       
@@ -302,7 +329,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">1.</span> <span class="toc-text">数据通信的本质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">OSI参考模型</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%BD%91%E7%BB%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">数据通信网络的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%A6%82%E5%BF%B5"><span class="toc-number">1.0.1.</span> <span class="toc-text">网络概念</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%84%E6%88%90"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">组成</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">功能</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#OSI%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.0.2.</span> <span class="toc-text">OSI七层模型</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#OSI%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">OSI七层模型基础概念</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">OSI参考模型</span></a></li></ol>
                     </div>
                 </span>
             </div>
